@@ -1,29 +1,26 @@
 ﻿@model Order
 <div class="container">
-    <form action="PhoneSearch" method="post">
-        <input type="text" name="Phone" value="" />
-        <button  class="btnPhoneSearch btn btn-light border text-primary icon-hover-primary">Tìm kiếm</button>
-    </form>
-    <div>      
-        <table>
-            <tr>
-                <td>Name</td>
-            </tr>
-          
-            <tr>
-                @if (Model.CustomerName == "")
-                {
-                <th>
-                    null
-                </th>
-            }
-            else
-            {
-                <th>
-                    @Model.CustomerName
-                </th>
-            }
-            </tr>
-        </table>
+    <div class="form-group">
+        <h3 class="text-info">Enter phone number to search:</h3>
+        <div class="input-group mb-3">
+            <input type="text" id="phoneInput" name="Phone" value="" class="form-control" placeholder="Phone number" aria-label="phone number" aria-describedby="search-addon" />
+            <button id="btnSearch" class="btn btn-outline-primary" type="button">Tìm kiếm</button>
+        </div>
     </div>
+    <table id="ordersTable" class="table d-none">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Order Date</th>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Total</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <span id="Message" class="text-danger d-none">Không tìm thấy kết quả</span>
 </div>
